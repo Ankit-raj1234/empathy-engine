@@ -39,7 +39,7 @@ def run_interactive():
             print("Goodbye!")
             break
 
-        output_file = f"output_{session}.wav"
+        output_file = f"output_{session}.mp3"
         process(text, output_file)
         session += 1
         print()
@@ -80,8 +80,8 @@ def main():
     parser.add_argument(
         "--output", "-o",
         type=str,
-        default="output.wav",
-        help="Output audio file path (default: output.wav).",
+        default="output.mp3",
+        help="Output audio file path (default: output.mp3).",
     )
     parser.add_argument(
         "--voices",
