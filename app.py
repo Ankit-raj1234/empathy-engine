@@ -34,14 +34,14 @@ def generate():
     result = detect_emotion(text)
 
     # Generate a unique audio filename to avoid browser caching
-    filename = f"output_{uuid.uuid4().hex[:8]}.mp3"
+    filename = f"output_{uuid.uuid4().hex[:8]}.wav"
     filepath = os.path.join(AUDIO_FOLDER, filename)
 
     # Generate audio
     speak_and_save(text, result["rate"], result["volume"], filepath)
 
     # Clean up old audio files (keep only last 5)
-    _cleanup_old_files(AUDIO_FOLDER, keep=5, ext=".mp3")
+    _cleanup_old_files(AUDIO_FOLDER, keep=5, ext=".wav")
 
     return jsonify({
         "emotion":    result["label"],
